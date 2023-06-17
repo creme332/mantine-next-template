@@ -33,10 +33,7 @@ export default function App({ Component, pageProps }) {
               name="viewport"
               content="width=device-width, initial-scale=1"
             />
-            <meta
-              name="description"
-              content="Welcome to our exciting hide-and-seek web game! Challenge yourself to find the hidden character in each scene, and see how fast you can do it. With randomized characters and difficulty levels, each game is a unique experience. Try it now and put your search skills to the test!"
-            />
+            <meta name="description" content="description of website here" />
             <title>qkwiqq</title>
           </Head>
           <Header></Header>{" "}
