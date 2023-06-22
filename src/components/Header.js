@@ -86,8 +86,8 @@ const useStyles = createStyles((theme) => ({
 export default function HeaderMegaMenu({ loggedIn }) {
   const tabs = [
     { name: "Home", link: "/" },
-    { name: "Leaderboard", link: "/#" },
-    { name: "Account", link: "/#" },
+    { name: "Leaderboard", link: "/leaderboad" },
+    { name: "Account", link: "/account" },
   ];
 
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
@@ -95,7 +95,7 @@ export default function HeaderMegaMenu({ loggedIn }) {
   const { classes, theme } = useStyles();
 
   const links = tabs.map((e) => (
-    <Link key={`${e.link}-key`} className={classes.link} href={e.link}>
+    <Link key={`${e.link}-link-key`} className={classes.link} href={e.link}>
       {e.name}
     </Link>
   ));
