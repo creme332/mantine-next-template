@@ -1,4 +1,4 @@
-import { Container } from "@mantine/core";
+import { Container, Button, Group } from "@mantine/core";
 import styles from "@/styles/Game.module.css";
 import { useState } from "react";
 
@@ -79,20 +79,27 @@ export default function Game() {
     }
     return (
       <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
+        <Button
+          variant="outline"
+          color="teal"
+          key={`${move}-button`}
+          onClick={() => jumpTo(move)}
+        >
+          {description}
+        </Button>
       </li>
     );
   });
 
   return (
-    <Container>
+    <Group h={550}>
       <Container>
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </Container>
       <Container className={styles.gameInfo}>
-        <ol>{moves}</ol>
+        <ol className={styles.buttonList}>{moves}</ol>
       </Container>
-    </Container>
+    </Group>
   );
 }
 
