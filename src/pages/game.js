@@ -1,7 +1,7 @@
-import { Container, Button, Group } from "@mantine/core";
+import { Container, Button, Group, Alert } from "@mantine/core";
 import styles from "@/styles/Game.module.css";
 import { useState } from "react";
-
+import { IconAlertCircle } from "@tabler/icons-react";
 function Square({ value, onSquareClick }) {
   return (
     <button className={styles.square} onClick={onSquareClick}>
@@ -54,7 +54,7 @@ function Board({ xIsNext, squares, onPlay }) {
   );
 }
 
-export default function Game() {
+export default function Game({ loggedIn }) {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
@@ -82,7 +82,6 @@ export default function Game() {
         <Button
           variant="outline"
           color="teal"
-          key={`${move}-button`}
           onClick={() => jumpTo(move)}
         >
           {description}
@@ -91,6 +90,19 @@ export default function Game() {
     );
   });
 
+  if (!loggedIn) {
+    console.log(loggedIn);
+    return (
+      <Alert
+        mt={30}
+        icon={<IconAlertCircle size="1rem" />}
+        title="ERROR!"
+        color="red"
+      >
+        You must login to continue.
+      </Alert>
+    );
+  }
   return (
     <Group h={550}>
       <Container>

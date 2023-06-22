@@ -16,16 +16,22 @@ export default function App({ Component, pageProps }) {
   //states for user login
   const [loggedIn, setLoggedIn] = useState(false);
 
+  /**
+   * Checks if login details are correct
+   * @param {String} email
+   * @param {String} password
+   * @returns {Boolean} True if login details are correct, false otherwise.
+   */
   function validateLogin(email, password) {
     console.log(email, password);
     setLoggedIn(true);
     return true;
-    if (email === "j@me.com" && password === "abcd") {
-      setLoggedIn(true);
-      return true;
-    }
-    setLoggedIn(false);
-    return false;
+    // if (email === "j@me.com" && password === "abcd") {
+    //   setLoggedIn(true);
+    //   return true;
+    // }
+    // setLoggedIn(false);
+    // return false;
   }
   return (
     <>
