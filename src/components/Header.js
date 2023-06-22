@@ -11,16 +11,7 @@ import {
   rem,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import {
-  IconNotification,
-  IconTicTac,
-  IconCode,
-  IconBook,
-  IconChartPie3,
-  IconFingerprint,
-  IconCoin,
-  IconChevronDown,
-} from "@tabler/icons-react";
+import { IconTicTac } from "@tabler/icons-react";
 import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
@@ -92,12 +83,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function HeaderMegaMenu() {
+export default function HeaderMegaMenu({ loggedIn }) {
   const tabs = [
     { name: "Home", link: "/" },
-    { name: "Play", link: "/game" },
-    // { name: "Profile", link: "/profile" },
-    // { name: "Leaderboard", link: "/leaderboard" },
+    { name: "Leaderboard", link: "/#" },
+    { name: "Account", link: "/#" },
   ];
 
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
@@ -127,8 +117,7 @@ export default function HeaderMegaMenu() {
           </Group>
 
           <Group className={classes.hiddenMobile}>
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
+            <Button variant="default">{loggedIn ? "Log out" : "Log in"}</Button>
           </Group>
 
           <Burger
@@ -162,8 +151,7 @@ export default function HeaderMegaMenu() {
           />
 
           <Group position="center" grow pb="xl" px="md">
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
+            <Button variant="default">{loggedIn ? "Log out" : "Log in"}</Button>
           </Group>
         </ScrollArea>
       </Drawer>
