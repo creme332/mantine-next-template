@@ -1,5 +1,4 @@
 import { createStyles, Container, Group, Anchor, rem } from "@mantine/core";
-import { IconTicTac } from "@tabler/icons-react";
 const useStyles = createStyles((theme) => ({
   footer: {
     marginTop: rem(120),
@@ -27,7 +26,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function Footer() {
+export default function Footer({ mainLogo }) {
   const links = [
     { label: "Home", link: "#" },
     { label: "Contact", link: "#" },
@@ -50,7 +49,7 @@ export default function Footer() {
   return (
     <div className={classes.footer}>
       <Container className={classes.inner}>
-        <IconTicTac />
+        {mainLogo}
         <Group className={classes.links}>{items}</Group>
       </Container>
     </div>

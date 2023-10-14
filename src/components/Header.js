@@ -9,10 +9,11 @@ import {
   Drawer,
   ScrollArea,
   rem,
+  ActionIcon,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconTicTac } from "@tabler/icons-react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -83,13 +84,14 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function HeaderMegaMenu({ loggedIn }) {
+export default function HeaderMegaMenu({ mainLogo }) {
+  const router = useRouter();
   const tabs = [
     { name: "Home", link: "/" },
-    { name: "Leaderboard", link: "/leaderboad" },
-    { name: "Account", link: "/account" },
+    { name: "Page", link: "/page" },
+    { name: "Subpage", link: "/subpage/page" },
   ];
-
+  console.log(mainLogo);
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
   const { classes, theme } = useStyles();
@@ -105,7 +107,9 @@ export default function HeaderMegaMenu({ loggedIn }) {
       <Header height={60} px="md">
         <Group position="apart" sx={{ height: "100%" }}>
           <Link href="/">
-            <IconTicTac size={30} />
+            <ActionIcon variant="transparent" title="Homepage" color="green">
+              {mainLogo}
+            </ActionIcon>
           </Link>
 
           <Group
@@ -117,7 +121,17 @@ export default function HeaderMegaMenu({ loggedIn }) {
           </Group>
 
           <Group className={classes.hiddenMobile}>
-            <Button variant="default">{loggedIn ? "Log out" : "Log in"}</Button>
+            <Button
+              color="red"
+              onClick={() => {
+                router.push({
+                  pathname: "/dashboard",
+                });
+              }}
+              variant="filled"
+            >
+              404
+            </Button>{" "}
           </Group>
 
           <Burger
@@ -151,7 +165,17 @@ export default function HeaderMegaMenu({ loggedIn }) {
           />
 
           <Group position="center" grow pb="xl" px="md">
-            <Button variant="default">{loggedIn ? "Log out" : "Log in"}</Button>
+            <Button
+              onClick={() => {
+                router.push({
+                  pathname: "/dashboard",
+                });
+              }}
+              color="red"
+              variant="filled"
+            >
+              404
+            </Button>
           </Group>
         </ScrollArea>
       </Drawer>

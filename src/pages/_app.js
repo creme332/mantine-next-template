@@ -6,6 +6,7 @@ import Head from "next/head";
 import { Container } from "@mantine/core";
 import { MantineProvider, ColorSchemeProvider } from "@mantine/core";
 import { useState } from "react";
+import { IconTicTac } from "@tabler/icons-react";
 
 export default function App({ Component, pageProps }) {
   // states for theme
@@ -13,26 +14,6 @@ export default function App({ Component, pageProps }) {
   const toggleColorScheme = (value) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
-  //states for user login
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  /**
-   * Checks if login details are correct
-   * @param {String} email
-   * @param {String} password
-   * @returns {Boolean} True if login details are correct, false otherwise.
-   */
-  function validateLogin(email, password) {
-    console.log(email, password);
-    setLoggedIn(true);
-    return true;
-    // if (email === "j@me.com" && password === "abcd") {
-    //   setLoggedIn(true);
-    //   return true;
-    // }
-    // setLoggedIn(false);
-    // return false;
-  }
   return (
     <>
       <ColorSchemeProvider
@@ -56,17 +37,18 @@ export default function App({ Component, pageProps }) {
               content="width=device-width, initial-scale=1"
             />
             <meta name="description" content="description of website here" />
-            <title>qkwiqq</title>
+            <title>react-next-template</title>
           </Head>
-          {loggedIn ? <Header loggedIn={loggedIn} /> : null}
+          <Header
+            mainLogo={
+              <IconTicTac
+              />
+            }
+          />
           <Container>
-            <Component
-              {...pageProps}
-              loggedIn={loggedIn}
-              validateLogin={validateLogin}
-            />
+            <Component {...pageProps} />
           </Container>
-          <Footer />
+          <Footer mainLogo={<IconTicTac />} />
         </MantineProvider>
       </ColorSchemeProvider>
     </>
