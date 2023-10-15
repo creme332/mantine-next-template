@@ -1,9 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MRN-template 🦄
+This is a [Next.js](https://nextjs.org/) project using React and the Mantine UI library.  
 
+![Screenshot of website](image.png)
+
+[Live Preview ▶]()
+
+## Features
+- Mantine (v7), including the forms management library and the dates package
+- React (v18)
+- Tabler icons (v2)
 ## Installation
-
-To install dependencies:
+Install the template:
+```bash
+git clone git@github.com:creme332/react-next-template.git
 ```
+
+> 🔴 **Note**: Delete the `.git` folder in the root directory of this project if you are cloning this project inside another git folder.
+
+Install dependencies:
+```bash
 npm install
 ```
 
@@ -20,3 +35,27 @@ To run production server:
 ```bash
 npm run start
 ```
+
+## Updating packages
+To check for outdated packages:
+```bash
+npm outdated
+```
+
+To update all dependencies, if you are confident this is desirable:
+```bash
+npm update --save
+```
+
+> 🟢 **Note**: To migrate packages to newer versions, always refer to the documentation.
+> 
+## To-do
+After installing the project, perform the following actions:
+- [ ] Update project title in `package.json` and `package-lock.json`
+- [ ] Update favicon in `_app.tsx`
+- [ ] Update website title and description in `_app.tsx`
+- [ ] Update font
+- [ ] Update `logo` in `_app.tsx`
+
+## References
+- https://stackoverflow.com/a/16532884/17627866
