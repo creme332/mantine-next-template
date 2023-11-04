@@ -62,7 +62,11 @@ const mockdata = [
   },
 ];
 
-export default function HeaderMegaMenu({ icon = null }) {
+interface headerProps {
+  icon?: JSX.Element | null;
+}
+
+export default function HeaderMegaMenu({ icon }: headerProps) {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);

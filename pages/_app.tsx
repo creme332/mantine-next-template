@@ -7,7 +7,7 @@ import Footer from "../components/FooterSimple";
 import { IconBrandGooglePhotos } from "@tabler/icons-react";
 
 interface AppProps {
-  Component?: React.FunctionComponent<any>;
+  Component: () => JSX.Element;
   pageProps: any;
 }
 
