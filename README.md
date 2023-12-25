@@ -57,11 +57,14 @@ npm update --save
 ## To-do
 After installing the project, perform the following actions:
 - [ ] Update project title in `package.json` and `package-lock.json`
+- [ ] Ensure that you have the [necessary VSCode extensions](https://mantine.dev/getting-started/#set-up-vs-code)
+- [ ] Remove any unused dependencies
 - [ ] Update favicon in `_app.tsx`
 - [ ] Update website title and meta description in `_app.tsx`
 - [ ] Update font
 - [ ] Update `logo` in `_app.tsx`
 - [ ] Run lighthouse report
+- [ ] Use NextJS Link component instead of anchor tag
 
 ## References
 - https://stackoverflow.com/a/16532884/17627866
