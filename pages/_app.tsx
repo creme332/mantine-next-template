@@ -2,7 +2,7 @@ import "@mantine/core/styles.css";
 import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
 import { theme } from "../theme";
-import Header from "../components/HeaderMegaMenu";
+import Header from "../components/HeaderSimple";
 import Footer from "../components/FooterSimple";
 import { IconBrandGooglePhotos } from "@tabler/icons-react";
 
@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="description" content="description of website here" />
         <title>Template</title>
       </Head>
-      <Header icon={<IconBrandGooglePhotos />} />
+      <Header />
       <Component {...pageProps} />
       <Footer icon={<IconBrandGooglePhotos />} />
     </MantineProvider>
